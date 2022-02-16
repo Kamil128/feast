@@ -10,6 +10,7 @@ A feature view is an object that represents a logical group of time-series featu
 driver_stats_fv = FeatureView(
     name="driver_activity",
     entities=["driver"],
+    ttl=None,
     features=[
         Feature(name="trips_today", dtype=ValueType.INT64),
         Feature(name="rating", dtype=ValueType.FLOAT),
@@ -42,6 +43,7 @@ If a feature view contains features that are not related to a specific entity, t
 global_stats_fv = FeatureView(
     name="global_stats",
     entities=[],
+    ttl=None,
     features=[
         Feature(name="total_trips_today_by_all_drivers", dtype=ValueType.INT64),
     ],
@@ -75,6 +77,7 @@ location = Entity(name="location", join_key="location_id", value_type=ValueType.
 location_stats_fv= FeatureView(
     name="location_stats",
     entities=["location"],
+    ttl=None,
     features=[
         Feature(name="temperature", dtype=ValueType.INT32)
     ],
